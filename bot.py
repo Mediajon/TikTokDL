@@ -4,31 +4,31 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 
 # Configs
-API_HASH = os.environ['API_HASH']
-APP_ID = int(os.environ['APP_ID'])
-BOT_TOKEN = os.environ['BOT_TOKEN']
+API_HASH = os.environ['76f53cc3434d2c4c0094b0d4b1c0895b']
+APP_ID = int(os.environ['10557180'])
+BOT_TOKEN = os.environ['5270464106:AAE4Qq8CW-qElrUIcnWk3BMRjsPJBBpO2Ow']
 downloads = './downloads/{}/'
 
 #Button
 START_BUTTONS=[
     [
-        InlineKeyboardButton('Source', url='https://github.com/X-Gorn/TikTokDL'),
-        InlineKeyboardButton('Project Channel', url='https://t.me/xTeamBots'),
+        InlineKeyboardButton('Aloqa', url='https://t.me/@Mediajon'),
+        InlineKeyboardButton('Kanal', url='https://t.me/gamediscovery'),
     ],
-    [InlineKeyboardButton('Author', url='https://t.me/xgorn')],
+    ##[InlineKeyboardButton('Author', url='https://t.me/xgorn')],
 ]
 
 DL_BUTTONS=[
     [
-        InlineKeyboardButton('No Watermark', callback_data='nowm'),
-        InlineKeyboardButton('Watermark', callback_data='wm'),
+        InlineKeyboardButton('Yozuvli', callback_data='nowm'),
+        InlineKeyboardButton('Yozuvsiz', callback_data='wm'),
     ],
     [InlineKeyboardButton('Audio', callback_data='audio')],
 ]
 
 
 # Running bot
-xbot = Client('TikTokDL', api_id=APP_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
+xbot = Client('TaTaFayl', api_id=APP_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 
 
 # Helpers
@@ -49,7 +49,7 @@ async def run_cmd(cmd: str) -> Tuple[str, str, int, int]:
 # Start
 @xbot.on_message(filters.command('start') & filters.private)
 async def _start(bot, update):
-  await update.reply_text(f"I'm TikTokDL!\nYou can download tiktok video/audio using this bot", True, reply_markup=InlineKeyboardMarkup(START_BUTTONS))
+  await update.reply_text(f"Hush Kelibsiz!\nMen TikTokdan video va musiqalarni sizga ko'chirib olishda yordam beraman", True, reply_markup=InlineKeyboardMarkup(START_BUTTONS))
 
 # Downloader for tiktok
 @xbot.on_message(filters.regex(pattern='.*http.*') & filters.private)
@@ -59,7 +59,7 @@ async def _tiktok(bot, update):
   resp = session.head(url, allow_redirects=True)
   if not 'tiktok.com' in resp.url:
     return
-  await update.reply('Select the options below', True, reply_markup=InlineKeyboardMarkup(DL_BUTTONS))
+  await update.reply('Quyidagi variantlardan birini tanlang', True, reply_markup=InlineKeyboardMarkup(DL_BUTTONS))
 
 # Callbacks
 @xbot.on_callback_query()
@@ -78,7 +78,7 @@ async def _callbacks(bot, cb: CallbackQuery):
     else:
       tt = resp.url
     ttid = dirs+tt.split('/')[-1]
-    r = requests.get('https://api.reiyuura.me/api/dl/tiktok?url='+tt)
+    r = requests.get('https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/vid/index='+tt)
     result = r.text
     rs = json.loads(result)
     link = rs['result']['nowm']
@@ -101,7 +101,7 @@ async def _callbacks(bot, cb: CallbackQuery):
     else:
       tt = resp.url
     ttid = dirs+tt.split('/')[-1]
-    r = requests.get('https://api.reiyuura.me/api/dl/tiktok?url='+tt)
+    r = requests.get('https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/vid/index='+tt)
     result = r.text
     rs = json.loads(result)
     link = rs['result']['wm']
@@ -124,7 +124,7 @@ async def _callbacks(bot, cb: CallbackQuery):
     else:
       tt = resp.url
     ttid = dirs+tt.split('/')[-1]
-    r = requests.get('https://api.reiyuura.me/api/dl/tiktok?url='+tt)
+    r = requests.get('https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/vid/index='+tt)
     result = r.text
     rs = json.loads(result)
     link = rs['result']['wm']
