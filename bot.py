@@ -78,7 +78,7 @@ async def _callbacks(bot, cb: CallbackQuery):
     else:
       tt = resp.url
     ttid = dirs+tt.split('/')[-1]
-    r = requests.get('https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/vid/index='+tt)
+    r = requests.get('https://api.reiyuura.me/api/dl/tiktok?url='+tt)
     result = r.text
     rs = json.loads(result)
     link = rs['result']['nowm']
@@ -101,7 +101,7 @@ async def _callbacks(bot, cb: CallbackQuery):
     else:
       tt = resp.url
     ttid = dirs+tt.split('/')[-1]
-    r = requests.get('https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/vid/index='+tt)
+    r = requests.get('https://api.reiyuura.me/api/dl/tiktok?url='+tt)
     result = r.text
     rs = json.loads(result)
     link = rs['result']['wm']
@@ -124,7 +124,7 @@ async def _callbacks(bot, cb: CallbackQuery):
     else:
       tt = resp.url
     ttid = dirs+tt.split('/')[-1]
-    r = requests.get('https://tiktok-downloader-download-tiktok-videos-without-watermark.p.rapidapi.com/vid/index='+tt)
+    r = requests.get('https://api.reiyuura.me/api/dl/tiktok?url='+tt)
     result = r.text
     rs = json.loads(result)
     link = rs['result']['wm']
