@@ -4,9 +4,9 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 
 # Configs
-API_HASH = os.environ['76f53cc3434d2c4c0094b0d4b1c0895b']
-APP_ID = int(os.environ['10557180'])
-BOT_TOKEN = os.environ['5270464106:AAE4Qq8CW-qElrUIcnWk3BMRjsPJBBpO2Ow']
+API_HASH = os.environ['API_HASH']
+APP_ID = int(os.environ['APP_ID'])
+BOT_TOKEN = os.environ['BOT_TOKEN']
 downloads = './downloads/{}/'
 
 #Button
